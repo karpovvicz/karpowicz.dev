@@ -1,0 +1,21 @@
+{
+  "name": "Kacper Karpowicz — Web Developer",
+  "short_name": "K. Karpowicz",
+  "description": "Full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2ede4",
+  "theme_color": "#f2ede4",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

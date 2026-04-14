@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kacper Karpowicz — Web Developer</title>
+<meta name="description" content="Kacper Karpowicz — full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress. Based in France." />
+<meta name="theme-color" content="#f2ede4">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://karpowicz.dev">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kacper Karpowicz — Web Developer">
+<meta property="og:description" content="Full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress.">
+<meta property="og:url" content="https://karpowicz.dev">
+<meta property="og:image" content="https://karpowicz.dev/og-image.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kacper Karpowicz — Web Developer">
+<meta name="twitter:description" content="Full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress.">
+<meta name="twitter:image" content="https://karpowicz.dev/og-image.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#f2ede4;
+    --paper-2:#ebe4d6;
+    --ink:#1a1714;
+    --ink-2:#3b352e;
+    --muted:#7a7166;
+    --rule:#d6cdbb;
+    --accent:#c9442a;
+    --accent-2:#e8a37a;
+    --max:1320px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Fraunces",Georgia,serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-feature-settings:"ss01","ss02";
+  }
+  /* Subtle paper grain */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:.07;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--paper)}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 40px;position:relative;z-index:2}
+  @media (max-width:720px){ .wrap{padding:0 22px} }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(8px);
+    background:rgba(242,237,228,.78);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    font-family:"JetBrains Mono",monospace;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--accent);
+    box-shadow:0 0 0 4px rgba(201,68,42,.18);
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.7}}
+  .nav ul{list-style:none;display:flex;gap:34px;margin:0;padding:0}
+  .nav ul a{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-2);
+    position:relative;padding-bottom:3px;
+  }
+  .nav ul a::after{
+    content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+    background:var(--accent);transition:right .35s ease;
+  }
+  .nav ul a:hover::after{right:0}
+  @media (max-width:720px){ .nav ul{display:none} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:90px 0 120px;position:relative}
+  .hero-meta{
+    display:flex;justify-content:space-between;
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:60px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:18px;
+  }
+  .hero h1{
+    font-family:"Instrument Serif",serif;
+    font-weight:400;
+    font-size:clamp(58px,11vw,172px);
+    line-height:.92;
+    letter-spacing:-.02em;
+    margin:0;
+  }
+  .hero h1 .it{font-style:italic;color:var(--accent)}
+  .hero h1 .amp{font-style:italic;font-weight:400;color:var(--muted)}
+  .hero-tag{
+    display:grid;grid-template-columns:1fr 1.1fr;gap:60px;
+    margin-top:70px;align-items:start;
+  }
+  @media (max-width:860px){ .hero-tag{grid-template-columns:1fr;gap:36px} }
+  .hero-num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  .hero-num .label{display:block;margin-top:6px;color:var(--ink-2)}
+  .hero-lede{
+    font-size:clamp(20px,2vw,26px);
+    line-height:1.45;
+    color:var(--ink-2);
+    max-width:58ch;
+    font-weight:400;
+  }
+  .hero-lede em{color:var(--accent);font-style:italic}
+
+  .hero-cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px;
+    border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--accent)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.ghost:hover{box-shadow:4px 4px 0 var(--ink)}
+  .btn .arrow{display:inline-block;transition:transform .25s ease}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* ---------- SECTION HEADER ---------- */
+  section{padding:110px 0;border-top:1px solid var(--rule);position:relative}
+  .sec-head{
+    display:grid;grid-template-columns:120px 1fr;gap:40px;
+    margin-bottom:70px;align-items:end;
+  }
+  @media (max-width:720px){ .sec-head{grid-template-columns:1fr;gap:18px;margin-bottom:48px} }
+  .sec-num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);
+  }
+  .sec-title{
+    font-family:"Instrument Serif",serif;
+    font-weight:400;
+    font-size:clamp(40px,6vw,84px);
+    line-height:.95;letter-spacing:-.015em;
+    margin:0;
+  }
+  .sec-title em{font-style:italic;color:var(--accent)}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid;grid-template-columns:120px 1fr 1fr;gap:60px}
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;gap:30px} }
+  .about-grid p{margin:0 0 22px;font-size:18px;line-height:1.65;color:var(--ink-2)}
+  .about-grid p:first-child::first-line{font-variant:small-caps;letter-spacing:.04em}
+  .about-grid .col-label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- FEATURED WORK ---------- */
+  .feat{display:flex;flex-direction:column;gap:0}
+  .feat-row{
+    display:grid;grid-template-columns:80px 1fr 1.2fr 140px;
+    gap:40px;align-items:start;
+    padding:42px 0;
+    border-bottom:1px solid var(--rule);
+    transition:background .4s ease, padding .4s ease;
+    cursor:default;
+    position:relative;
+  }
+  .feat-row:hover{background:var(--paper-2);padding-left:18px;padding-right:18px}
+  @media (max-width:860px){
+    .feat-row{grid-template-columns:1fr;gap:14px;padding:32px 0}
+    .feat-row:hover{padding-left:0;padding-right:0}
+  }
+  .feat-num{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.16em;color:var(--muted);
+  }
+  .feat-name{
+    font-family:"Instrument Serif",serif;
+    font-size:36px;line-height:1.05;letter-spacing:-.01em;margin:0;
+  }
+  .feat-name em{font-style:italic;color:var(--accent)}
+  .feat-name .live{
+    display:inline-block;
+    font-family:"JetBrains Mono",monospace;
+    font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);vertical-align:super;margin-left:6px;
+  }
+  .feat-desc{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px}
+  .feat-stack{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+    display:flex;flex-wrap:wrap;gap:6px 14px;
+  }
+  .feat-stack span{position:relative}
+  .feat-stack span:not(:last-child)::after{content:"·";margin-left:14px;opacity:.5}
+  .feat-year{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.14em;color:var(--muted);text-align:right;
+  }
+  .feat-year .arrow-link{
+    display:block;margin-top:14px;font-size:18px;color:var(--ink);
+    transition:transform .3s ease;
+  }
+  .feat-row:hover .arrow-link{transform:translateX(6px);color:var(--accent)}
+
+  /* ---------- PROJECT GRID (smaller) ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+        border:1px solid var(--rule)}
+  @media (max-width:860px){ .grid{grid-template-columns:1fr} }
+  .card{
+    background:var(--paper);padding:32px 28px;
+    transition:background .3s ease;
+    display:flex;flex-direction:column;gap:14px;min-height:200px;
+  }
+  .card:hover{background:var(--paper-2)}
+  .card h4{
+    font-family:"Instrument Serif",serif;
+    font-weight:400;font-size:24px;margin:0;line-height:1.1;
+  }
+  .card p{margin:0;font-size:14px;line-height:1.55;color:var(--ink-2)}
+  .card .tag{
+    margin-top:auto;
+    font-family:"JetBrains Mono",monospace;
+    font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  }
+
+  /* ---------- STACK ---------- */
+  .stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:50px 40px}
+  @media (max-width:860px){ .stack-grid{grid-template-columns:repeat(2,1fr);gap:36px 24px} }
+  .stack-col h5{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 16px;padding-bottom:10px;
+    border-bottom:1px solid var(--rule);
+  }
+  .stack-col ul{list-style:none;margin:0;padding:0}
+  .stack-col li{
+    font-size:16px;color:var(--ink-2);padding:7px 0;
+    border-bottom:1px dotted var(--rule);
+  }
+  .stack-col li:last-child{border:none}
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-row{
+    display:grid;grid-template-columns:160px 1fr 1fr;gap:40px;
+    padding:36px 0;border-bottom:1px solid var(--rule);
+  }
+  @media (max-width:860px){ .exp-row{grid-template-columns:1fr;gap:10px} }
+  .exp-date{
+    font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  }
+  .exp-role{
+    font-family:"Instrument Serif",serif;font-size:26px;line-height:1.15;margin:0 0 4px;
+  }
+  .exp-co{
+    font-size:14px;color:var(--accent);
+    font-family:"JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .exp-desc{font-size:15px;line-height:1.6;color:var(--ink-2);margin:0}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:140px 0 100px;text-align:left}
+  .contact h2{
+    font-family:"Instrument Serif",serif;font-weight:400;
+    font-size:clamp(48px,9vw,140px);
+    line-height:.95;letter-spacing:-.02em;margin:0 0 50px;
+  }
+  .contact h2 em{font-style:italic;color:var(--accent)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}
+  @media (max-width:720px){ .contact-grid{grid-template-columns:1fr;gap:24px} }
+  .contact-block{border-top:1px solid var(--ink);padding-top:18px}
+  .contact-block .label{
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:8px;
+  }
+  .contact-block a{
+    font-family:"Instrument Serif",serif;font-size:24px;
+    border-bottom:1px solid transparent;transition:border .25s ease;
+  }
+  .contact-block a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--rule);padding:32px 0 40px;
+    font-family:"JetBrains Mono",monospace;
+    font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+  }
+
+  /* ---------- REVEAL ANIMATIONS ---------- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  .hero h1 span{display:inline-block;opacity:0;transform:translateY(40px);
+    animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero h1 span:nth-child(1){animation-delay:.05s}
+  .hero h1 span:nth-child(2){animation-delay:.15s}
+  .hero h1 span:nth-child(3){animation-delay:.25s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ---------- ACCESSIBILITY & UTILITIES ---------- */
+  .skip-link{
+    position:absolute;left:-9999px;top:10px;z-index:999;
+    padding:12px 20px;background:var(--ink);color:var(--paper);
+    font-family:"JetBrains Mono",monospace;font-size:12px;
+    text-decoration:none;
+  }
+  .skip-link:focus{left:10px}
+
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* ---------- REDUCED MOTION ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .hero h1 span { opacity: 1; transform: none; animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ---------- PRINT STYLES ---------- */
+  @media print {
+    body::before { display: none; }
+    .nav, .hero-cta, .btn, footer { display: none; }
+    section { page-break-inside: avoid; border: none; padding: 20px 0; }
+    .hero h1 { font-size: 48px; }
+    .sec-title { font-size: 32px; }
+    a { color: var(--ink); text-decoration: underline; }
+    a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 10px; }
+  }
+
+  /* ---------- DARK MODE ---------- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1a1714;
+      --paper-2: #252220;
+      --ink: #f2ede4;
+      --ink-2: #d6cdbb;
+      --muted: #9a8f7e;
+      --rule: #3b352e;
+      --accent: #e8a37a;
+      --accent-2: #c9442a;
+    }
+    body::before { opacity: .04; mix-blend-mode: screen; }
+    .nav { background: rgba(26,23,20,.78); }
+    ::selection { background: var(--accent-2); color: var(--paper); }
+  }
+</style>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Kacper Karpowicz",
+  "jobTitle": "Full-Stack Web Developer",
+  "url": "https://karpowicz.dev",
+  "email": "karpovvicz@gmail.com",
+  "telephone": "+33767346778",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "FR"
+  },
+  "knowsAbout": ["React", "Next.js", "TypeScript", "JavaScript", "Python", "FastAPI", "WordPress", "PHP", "PostgreSQL", "MongoDB"],
+  "sameAs": [
+    "https://github.com/karpovvicz"
+  ],
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "Screen Academy Scotland"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Edinburgh Napier University"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="dot" aria-hidden="true"></span> Kacper Karpowicz / FR</div>
+    <nav><ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;padding-top:60px">
+    <div class="hero-meta">
+      <span>Portfolio · MMXXVI</span>
+      <span>Available for projects</span>
+    </div>
+    <h1>
+      <span>Building</span> <span class="it">things</span><br>
+      <span>that ship.</span>
+    </h1>
+
+    <div class="hero-tag">
+      <div>
+        <div class="hero-num">
+          ◆ 001
+          <span class="label">Introduction</span>
+        </div>
+      </div>
+      <div>
+        <p class="hero-lede">
+          Full-stack developer with a front-end specialism. I build production web applications across the modern JavaScript ecosystem — <em>React, Next.js, TypeScript</em> — and the WordPress / PHP world. Equally at home shipping client sites with WooCommerce as I am architecting full-stack systems with <em>FastAPI, PostgreSQL and real-time WebSockets</em>.
+        </p>
+        <div class="hero-cta">
+          <a class="btn" href="#work">Selected Work <span class="arrow">→</span></a>
+          <a class="btn ghost" href="mailto:karpovvicz@gmail.com">Get in touch <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head reveal">
+      <div class="sec-num">◆ 002 / About</div>
+      <h2 class="sec-title">A developer with <em>a film set</em> instinct.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="col-label">— Background</div>
+      <div>
+        <p>I came to code through years on Polish film sets, recording production sound on feature films and primetime TV drama. Sets teach you a particular discipline: there are no second takes, the whole crew waits on you, and either it works or it doesn't.</p>
+        <p>That's the same instinct I bring to shipping software. Clean architecture. Optimistic UI. Performance that doesn't cave under real users. Things that actually work in production.</p>
+      </div>
+      <div>
+        <p>My recent work spans a dual-strategy portfolio tracker exposing 120+ REST endpoints with market regime detection, content aggregation platforms, spaced-repetition learning apps, an automated trading bot running 24/7 on a Raspberry Pi, and bilingual commercial sites with custom calculators.</p>
+        <p>Most of my technical stack is self-taught through shipping real projects — not coursework. I'm open to ambitious work where I can own features end-to-end.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section id="work">
+    <div class="sec-head reveal">
+      <div class="sec-num">◆ 003 / Selected Work</div>
+      <h2 class="sec-title">Things I've <em>shipped</em>.</h2>
+    </div>
+
+    <div class="feat reveal">
+
+      <article class="feat-row">
+        <div class="feat-num">01</div>
+        <h3 class="feat-name">Portfolio Strategy <em>Tracker</em></h3>
+        <div>
+          <p class="feat-desc">Local-first hybrid full-stack app for tracking two investment strategies in parallel. 120+ REST endpoints, real-time WebSocket market data, VIX-adjusted DCA, market regime detection, execution quality scoring vs VWAP, multi-currency support, Monte Carlo simulations, and PDF/CSV reports.</p>
+          <div class="feat-stack">
+            <span>Next.js 14</span><span>TypeScript</span><span>FastAPI</span><span>SQLite</span><span>Redis</span><span>WebSockets</span><span>Recharts</span>
+          </div>
+        </div>
+        <div class="feat-year">2025</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">02</div>
+        <h3 class="feat-name">Najlah <em>Vans</em><span class="live">↗ live</span></h3>
+        <div>
+          <p class="feat-desc">Custom campervan conversion company in Kraków, 20+ completed builds. Interactive cost calculator with dynamic pricing, bilingual PL/EN, WooCommerce store, portfolio showcase and sticky CTA architecture.</p>
+          <div class="feat-stack">
+            <span>WordPress</span><span>WooCommerce</span><span>PHP</span><span>Elementor</span><span>Cost Calculator</span>
+          </div>
+        </div>
+        <div class="feat-year">2025<span class="arrow-link">↗</span></div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">03</div>
+        <h3 class="feat-name">Trading 212 <em>Mean-Reversion Bot</em></h3>
+        <div>
+          <p class="feat-desc">Production-ready automated trading bot on AAPL using the Trading 212 API. RSI + SMA signals, 24/7 operation on a Raspberry Pi with systemd, state persistence, retry logic, rotating logs, paper-trading mode, and pytest coverage.</p>
+          <div class="feat-stack">
+            <span>Python</span><span>Trading 212 API</span><span>Raspberry Pi</span><span>systemd</span><span>Pytest</span>
+          </div>
+        </div>
+        <div class="feat-year">2024</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">04</div>
+        <h3 class="feat-name">Maëva Boche <em>Portfolio</em></h3>
+        <div>
+          <p class="feat-desc">Next.js 14 site for a French cinematographer. Image-focused snap-scroll layout, embedded Vimeo player, filterable project gallery, image modals, Framer Motion choreography, contact form via Resend.</p>
+          <div class="feat-stack">
+            <span>Next.js 14</span><span>React</span><span>Tailwind</span><span>Framer Motion</span><span>Resend</span>
+          </div>
+        </div>
+        <div class="feat-year">2024</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">05</div>
+        <h3 class="feat-name">Un Truc de <em>Ouf Incroyable</em></h3>
+        <div>
+          <p class="feat-desc">French vocabulary learning app using spaced repetition. 10 words a day with intelligent review intervals, pause/resume sessions, catch-up mode, dark/light theming, and a quiet-luxury aesthetic.</p>
+          <div class="feat-stack">
+            <span>Next.js 15</span><span>TypeScript</span><span>Prisma 7</span><span>PostgreSQL</span><span>shadcn/ui</span>
+          </div>
+        </div>
+        <div class="feat-year">2025</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">06</div>
+        <h3 class="feat-name">bien <em>sûr</em></h3>
+        <div>
+          <p class="feat-desc">Habit tracker built on Next.js 16 and React 19. Calendar interface, streak tracking, optimistic UI updates, theme switching, Framer Motion micro-interactions.</p>
+          <div class="feat-stack">
+            <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Prisma 7</span><span>PostgreSQL</span>
+          </div>
+        </div>
+        <div class="feat-year">2025</div>
+      </article>
+
+    </div>
+
+    <!-- Smaller projects -->
+    <div style="margin-top:90px" class="reveal">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:14px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">— Also in the workshop</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">9 more</div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h4>Kwiat Cebuli</h4>
+          <p>Content aggregation platform curating the best of Reddit, X and YouTube. Infinite scroll, search & filtering, Cloudinary media.</p>
+          <div class="tag">Next.js · MongoDB · Cloudinary</div>
+        </div>
+        <div class="card">
+          <h4>Yama Studio Warsaw</h4>
+          <p>Recording studio site offering vocal recording, mixing and engineering services. Pricing, team, beats and publishing arm.</p>
+          <div class="tag">WordPress · Elementor · PHP</div>
+        </div>
+        <div class="card">
+          <h4>Psi-jaciel Shelter</h4>
+          <p>Polish non-profit animal shelter with adoption search, virtual adoption, 1.5% tax-redirect calculator and volunteer hub.</p>
+          <div class="tag">WordPress · PHP · Kadence</div>
+        </div>
+        <div class="card">
+          <h4>StrawberryFresh</h4>
+          <p>Aggregator with virtualized scrolling, dark mode, Cloudinary integration and SEO-first MongoDB architecture.</p>
+          <div class="tag">Next.js · MongoDB · Tailwind</div>
+        </div>
+        <div class="card">
+          <h4>YelpCamp!</h4>
+          <p>Full-stack camping app with auth, full CRUD, ratings, comments and a RESTful API across the Express stack.</p>
+          <div class="tag">Node · Express · Mongoose</div>
+        </div>
+        <div class="card">
+          <h4>Investment Calculator</h4>
+          <p>Functional React calculator using Hooks and props for clean data flow — modular, maintainable, modern practices.</p>
+          <div class="tag">React · JavaScript</div>
+        </div>
+        <div class="card">
+          <h4>Decimal → Binary</h4>
+          <p>Recursive converter that visualises the call stack as it executes, animating each step of the recursion.</p>
+          <div class="tag">JavaScript · HTML · CSS</div>
+        </div>
+        <div class="card">
+          <h4>JS Music Player</h4>
+          <p>Web music player with play/pause, navigation, shuffle and removal — all built on the JavaScript Audio object.</p>
+          <div class="tag">Vanilla JS · HTML · CSS</div>
+        </div>
+        <div class="card">
+          <h4>Tic-Tac-Toe</h4>
+          <p>Two-player React game with dynamic board, move log, winner detection and restart. A small, complete React study.</p>
+          <div class="tag">React · JavaScript</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div class="sec-head reveal">
+      <div class="sec-num">◆ 004 / Toolkit</div>
+      <h2 class="sec-title">The <em>stack</em>.</h2>
+    </div>
+    <div class="stack-grid reveal">
+      <div class="stack-col">
+        <h5>Languages</h5>
+        <ul>
+          <li>TypeScript</li>
+          <li>JavaScript (ES6+)</li>
+          <li>Python</li>
+          <li>PHP</li>
+          <li>SQL · HTML · CSS</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h5>Frontend</h5>
+        <ul>
+          <li>React (Hooks, Redux)</li>
+          <li>Next.js 14–16 · React 19</li>
+          <li>Tailwind CSS</li>
+          <li>shadcn/ui</li>
+          <li>Framer Motion · Recharts</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h5>Backend & Data</h5>
+        <ul>
+          <li>Node.js · Express</li>
+          <li>FastAPI</li>
+          <li>REST · WebSockets</li>
+          <li>PostgreSQL · MongoDB · SQLite</li>
+          <li>Prisma · Mongoose</li>
+        </ul>
+      </div>
+      <div class="stack-col">
+        <h5>CMS, Ops & Design</h5>
+        <ul>
+          <li>WordPress · WooCommerce · ACF</li>
+          <li>Vercel · Redis · Cloudinary</li>
+          <li>Raspberry Pi · systemd</li>
+          <li>GA · Search Console · GTM</li>
+          <li>Figma · Photoshop · Illustrator</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="sec-head reveal">
+      <div class="sec-num">◆ 005 / Experience</div>
+      <h2 class="sec-title">A working <em>history</em>.</h2>
+    </div>
+
+    <div class="reveal">
+      <div class="exp-row">
+        <div class="exp-date">Dec 2023 — Apr 2026</div>
+        <div>
+          <h3 class="exp-role">Freelance Front-End Developer</h3>
+          <div class="exp-co">Independent</div>
+        </div>
+        <p class="exp-desc">Designed and delivered modern responsive sites end-to-end. Built reusable React component libraries with Hooks and Redux, and maintained custom WordPress themes with PHP, ACF and page builders. Collaborated with distributed teams of designers, analysts and developers.</p>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-date">Dec 2024 — Apr 2025</div>
+        <div>
+          <h3 class="exp-role">Front-End Developer</h3>
+          <div class="exp-co">Fundacja Kompetencji Cyfrowych</div>
+        </div>
+        <p class="exp-desc">Shipped responsive, accessible interfaces with designers and PMs. Built bespoke WordPress themes in PHP beyond plugin configuration, optimised for performance and SEO with structured data, and crafted animations and micro-interactions that lifted UX above static layouts.</p>
+      </div>
+
+      <div class="exp-row">
+        <div class="exp-date">Sep 2020 — Jan 2026</div>
+        <div>
+          <h3 class="exp-role">Sound Recordist</h3>
+          <div class="exp-co">Dźwiękowe Pole Sp. z o.o.</div>
+        </div>
+        <p class="exp-desc">Production sound on Polish feature films and primetime TV drama under tight schedules. Selected credits: <em>Lalka</em> (2025), <em>Przyjaciółki</em> (2024), <em>Skołowani</em> (2023), <em>Stulecie Winnych</em> (2022), <em>Wotum Nieufności</em> (2022), <em>Bracia</em> (2021).</p>
+      </div>
+
+      <div class="exp-row" style="border-bottom:none">
+        <div class="exp-date">2018 — 2019</div>
+        <div>
+          <h3 class="exp-role">Education</h3>
+          <div class="exp-co">Edinburgh · Screen Academy Scotland</div>
+        </div>
+        <p class="exp-desc">MA Film (Sound), Screen Academy Scotland, 2019 · BA (Hons) English and Film, Edinburgh Napier University, 2018. Languages: Polish (native), English (C1), French (A2), Spanish (A1).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="sec-num reveal" style="margin-bottom:24px">◆ 006 / Contact</div>
+    <h2 class="reveal">Let's build <em>something</em><br>worth shipping.</h2>
+
+    <div class="contact-grid reveal">
+      <div class="contact-block">
+        <div class="label">— Email</div>
+        <a href="mailto:karpovvicz@gmail.com">karpovvicz@gmail.com</a>
+      </div>
+      <div class="contact-block">
+        <div class="label">— Phone</div>
+        <a href="tel:+33767346778">+33 7 67 34 67 78</a>
+      </div>
+      <div class="contact-block">
+        <div class="label">— Elsewhere</div>
+        <a href="https://github.com/karpovvicz" target="_blank" rel="noopener noreferrer">github.com/karpovvicz</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>© MMXXVI · Kacper Karpowicz</div>
+  <div>Designed & built in France · Set in Instrument Serif & JetBrains Mono</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
