@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kacper Karpowicz — Web Developer</title>
+<title>Kacper Karpowicz — Web Developer Paris</title>
 <meta name="description" content="Kacper Karpowicz — full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress. Based in France." />
+<meta name="author" content="Kacper Karpowicz">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#f2ede4">
 
 <!-- Favicon -->
@@ -18,16 +20,22 @@
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kacper Karpowicz — Web Developer">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Kacper Karpowicz">
+<meta property="og:title" content="Kacper Karpowicz — Web Developer Paris">
 <meta property="og:description" content="Full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress.">
 <meta property="og:url" content="https://karpowicz.dev">
 <meta property="og:image" content="https://karpowicz.dev/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kacper Karpowicz — Full-Stack Web Developer Portfolio">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kacper Karpowicz — Web Developer">
+<meta name="twitter:title" content="Kacper Karpowicz — Web Developer Paris">
 <meta name="twitter:description" content="Full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress.">
 <meta name="twitter:image" content="https://karpowicz.dev/og-image.jpg">
+<meta name="twitter:image:alt" content="Kacper Karpowicz — Full-Stack Web Developer Portfolio">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NQM6NPP19Q"></script>
@@ -38,6 +46,9 @@
 
   gtag('config', 'G-NQM6NPP19Q');
 </script>
+
+<!-- Performance -->
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -240,9 +251,10 @@
   .feat-name em{font-style:italic;color:var(--accent)}
   .feat-name .live{
     display:inline-block;
-    font-family:"JetBrains Mono",monospace;
-    font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--accent);vertical-align:super;margin-left:6px;
+    font-weight:300;
   }
   .feat-desc{font-size:15.5px;line-height:1.6;color:var(--ink-2);margin:0 0 14px}
   .feat-stack{
@@ -257,8 +269,11 @@
     font-size:11px;letter-spacing:.14em;color:var(--muted);text-align:right;
   }
   .feat-year .arrow-link{
-    display:block;margin-top:14px;font-size:18px;color:var(--ink);
+    display:block;margin-top:14px;font-size:20px;color:var(--ink);
     transition:transform .3s ease;
+    font-family:system-ui,-apple-system,sans-serif;
+    font-weight:200;
+    line-height:1;
   }
   .feat-row:hover .arrow-link{transform:translateX(6px);color:var(--accent)}
 
@@ -270,11 +285,27 @@
     background:var(--paper);padding:32px 28px;
     transition:background .3s ease;
     display:flex;flex-direction:column;gap:14px;min-height:200px;
+    overflow:hidden;
+    height:100%;
+  }
+  .grid a{
+    display:block;
+    height:100%;
+    text-decoration:none;
+    color:inherit;
   }
   .card:hover{background:var(--paper-2)}
   .card h4{
     font-family:"Instrument Serif",serif;
     font-weight:400;font-size:24px;margin:0;line-height:1.1;
+  }
+  .card .live{
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:11px;
+    font-weight:300;
+    letter-spacing:.06em;
+    vertical-align:super;
+    margin-left:4px;
   }
   .card p{margin:0;font-size:14px;line-height:1.55;color:var(--ink-2)}
   .card .tag{
@@ -416,28 +447,59 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kacper Karpowicz",
-  "jobTitle": "Full-Stack Web Developer",
-  "url": "https://karpowicz.dev",
-  "email": "karpovvicz@gmail.com",
-  "telephone": "+33767346778",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "FR"
-  },
-  "knowsAbout": ["React", "Next.js", "TypeScript", "JavaScript", "Python", "FastAPI", "WordPress", "PHP", "PostgreSQL", "MongoDB"],
-  "sameAs": [
-    "https://github.com/karpovvicz"
-  ],
-  "alumniOf": [
+  "@graph": [
     {
-      "@type": "EducationalOrganization",
-      "name": "Screen Academy Scotland"
+      "@type": "Person",
+      "@id": "https://karpowicz.dev/#person",
+      "name": "Kacper Karpowicz",
+      "jobTitle": "Full-Stack Web Developer",
+      "url": "https://karpowicz.dev",
+      "image": "https://karpowicz.dev/og-image.jpg",
+      "email": "karpovvicz@gmail.com",
+      "telephone": "+33767346778",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "FR"
+      },
+      "knowsAbout": ["React", "Next.js", "TypeScript", "JavaScript", "Python", "FastAPI", "WordPress", "PHP", "PostgreSQL", "MongoDB"],
+      "sameAs": [
+        "https://github.com/karpovvicz"
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Screen Academy Scotland"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Edinburgh Napier University"
+        }
+      ]
     },
     {
-      "@type": "EducationalOrganization",
-      "name": "Edinburgh Napier University"
+      "@type": "WebSite",
+      "@id": "https://karpowicz.dev/#website",
+      "url": "https://karpowicz.dev",
+      "name": "Kacper Karpowicz — Web Developer Portfolio",
+      "description": "Full-stack developer portfolio showcasing React, Next.js, TypeScript, and WordPress projects",
+      "publisher": {
+        "@id": "https://karpowicz.dev/#person"
+      },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://karpowicz.dev/#webpage",
+      "url": "https://karpowicz.dev",
+      "name": "Kacper Karpowicz — Web Developer",
+      "isPartOf": {
+        "@id": "https://karpowicz.dev/#website"
+      },
+      "about": {
+        "@id": "https://karpowicz.dev/#person"
+      },
+      "description": "Full-stack developer with a front-end specialism. React, Next.js, TypeScript, FastAPI, WordPress. Based in France.",
+      "inLanguage": "en-US"
     }
   ]
 }
@@ -519,21 +581,9 @@
 
     <div class="feat reveal">
 
-      <article class="feat-row">
-        <div class="feat-num">01</div>
-        <h3 class="feat-name">Portfolio Strategy <em>Tracker</em></h3>
-        <div>
-          <p class="feat-desc">Local-first hybrid full-stack app for tracking two investment strategies in parallel. 120+ REST endpoints, real-time WebSocket market data, VIX-adjusted DCA, market regime detection, execution quality scoring vs VWAP, multi-currency support, Monte Carlo simulations, and PDF/CSV reports.</p>
-          <div class="feat-stack">
-            <span>Next.js 14</span><span>TypeScript</span><span>FastAPI</span><span>SQLite</span><span>Redis</span><span>WebSockets</span><span>Recharts</span>
-          </div>
-        </div>
-        <div class="feat-year">2025</div>
-      </article>
-
       <a href="https://najlah.eu" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
       <article class="feat-row">
-        <div class="feat-num">02</div>
+        <div class="feat-num">01</div>
         <h3 class="feat-name">Najlah <em>Vans</em><span class="live">↗ live</span></h3>
         <div>
           <p class="feat-desc">Custom campervan conversion company in Kraków, 20+ completed builds. Interactive cost calculator with dynamic pricing, bilingual PL/EN, WooCommerce store, portfolio showcase and sticky CTA architecture.</p>
@@ -545,21 +595,9 @@
       </article>
       </a>
 
-      <article class="feat-row">
-        <div class="feat-num">03</div>
-        <h3 class="feat-name">Trading 212 <em>Mean-Reversion Bot</em></h3>
-        <div>
-          <p class="feat-desc">Production-ready automated trading bot on AAPL using the Trading 212 API. RSI + SMA signals, 24/7 operation on a Raspberry Pi with systemd, state persistence, retry logic, rotating logs, paper-trading mode, and pytest coverage.</p>
-          <div class="feat-stack">
-            <span>Python</span><span>Trading 212 API</span><span>Raspberry Pi</span><span>systemd</span><span>Pytest</span>
-          </div>
-        </div>
-        <div class="feat-year">2024</div>
-      </article>
-
       <a href="https://maevaboche.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
       <article class="feat-row">
-        <div class="feat-num">04</div>
+        <div class="feat-num">02</div>
         <h3 class="feat-name">Maëva Boche <em>Portfolio</em><span class="live">↗ live</span></h3>
         <div>
           <p class="feat-desc">Next.js 14 site for a French cinematographer. Image-focused snap-scroll layout, embedded Vimeo player, filterable project gallery, image modals, Framer Motion choreography, contact form via Resend.</p>
@@ -571,33 +609,9 @@
       </article>
       </a>
 
-      <article class="feat-row">
-        <div class="feat-num">05</div>
-        <h3 class="feat-name">Un Truc de <em>Ouf Incroyable</em></h3>
-        <div>
-          <p class="feat-desc">French vocabulary learning app using spaced repetition. 10 words a day with intelligent review intervals, pause/resume sessions, catch-up mode, dark/light theming, and a quiet-luxury aesthetic.</p>
-          <div class="feat-stack">
-            <span>Next.js 15</span><span>TypeScript</span><span>Prisma 7</span><span>PostgreSQL</span><span>shadcn/ui</span>
-          </div>
-        </div>
-        <div class="feat-year">2025</div>
-      </article>
-
-      <article class="feat-row">
-        <div class="feat-num">06</div>
-        <h3 class="feat-name">bien <em>sûr</em></h3>
-        <div>
-          <p class="feat-desc">Habit tracker built on Next.js 16 and React 19. Calendar interface, streak tracking, optimistic UI updates, theme switching, Framer Motion micro-interactions.</p>
-          <div class="feat-stack">
-            <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Prisma 7</span><span>PostgreSQL</span>
-          </div>
-        </div>
-        <div class="feat-year">2025</div>
-      </article>
-
       <a href="https://kwiatcebuli.pl" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
       <article class="feat-row">
-        <div class="feat-num">07</div>
+        <div class="feat-num">03</div>
         <h3 class="feat-name">Kwiat <em>Cebuli</em><span class="live">↗ live</span></h3>
         <div>
           <p class="feat-desc">Content aggregation platform curating the best of Reddit, X and YouTube. Infinite scroll, search & filtering, Cloudinary media.</p>
@@ -611,7 +625,7 @@
 
       <a href="https://yamastudio.pl" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
       <article class="feat-row">
-        <div class="feat-num">08</div>
+        <div class="feat-num">04</div>
         <h3 class="feat-name">Yama Studio <em>Warsaw</em><span class="live">↗ live</span></h3>
         <div>
           <p class="feat-desc">Recording studio site offering vocal recording, mixing and engineering services. Pricing, team, beats and publishing arm.</p>
@@ -625,7 +639,7 @@
 
       <a href="https://psi-jaciel.pl" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
       <article class="feat-row">
-        <div class="feat-num">09</div>
+        <div class="feat-num">05</div>
         <h3 class="feat-name">Psi-jaciel <em>Shelter</em><span class="live">↗ live</span></h3>
         <div>
           <p class="feat-desc">Polish non-profit animal shelter with adoption search, virtual adoption, 1.5% tax-redirect calculator and volunteer hub.</p>
@@ -639,7 +653,7 @@
 
       <a href="https://strawberryfresh.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
       <article class="feat-row">
-        <div class="feat-num">10</div>
+        <div class="feat-num">06</div>
         <h3 class="feat-name">StrawberryFresh<span class="live">↗ live</span></h3>
         <div>
           <p class="feat-desc">Aggregator with virtualized scrolling, dark mode, Cloudinary integration and SEO-first MongoDB architecture.</p>
@@ -650,6 +664,54 @@
         <div class="feat-year">2024<span class="arrow-link">↗</span></div>
       </article>
       </a>
+
+      <article class="feat-row">
+        <div class="feat-num">07</div>
+        <h3 class="feat-name">Portfolio Strategy <em>Tracker</em></h3>
+        <div>
+          <p class="feat-desc">Local-first hybrid full-stack app for tracking two investment strategies in parallel. 120+ REST endpoints, real-time WebSocket market data, VIX-adjusted DCA, market regime detection, execution quality scoring vs VWAP, multi-currency support, Monte Carlo simulations, and PDF/CSV reports.</p>
+          <div class="feat-stack">
+            <span>Next.js 14</span><span>TypeScript</span><span>FastAPI</span><span>SQLite</span><span>Redis</span><span>WebSockets</span><span>Recharts</span>
+          </div>
+        </div>
+        <div class="feat-year">2025</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">08</div>
+        <h3 class="feat-name">Trading 212 <em>Mean-Reversion Bot</em></h3>
+        <div>
+          <p class="feat-desc">Production-ready automated trading bot on AAPL using the Trading 212 API. RSI + SMA signals, 24/7 operation on a Raspberry Pi with systemd, state persistence, retry logic, rotating logs, paper-trading mode, and pytest coverage.</p>
+          <div class="feat-stack">
+            <span>Python</span><span>Trading 212 API</span><span>Raspberry Pi</span><span>systemd</span><span>Pytest</span>
+          </div>
+        </div>
+        <div class="feat-year">2024</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">09</div>
+        <h3 class="feat-name">Un Truc de <em>Ouf Incroyable</em></h3>
+        <div>
+          <p class="feat-desc">French vocabulary learning app using spaced repetition. 10 words a day with intelligent review intervals, pause/resume sessions, catch-up mode, dark/light theming, and a quiet-luxury aesthetic.</p>
+          <div class="feat-stack">
+            <span>Next.js 15</span><span>TypeScript</span><span>Prisma 7</span><span>PostgreSQL</span><span>shadcn/ui</span>
+          </div>
+        </div>
+        <div class="feat-year">2025</div>
+      </article>
+
+      <article class="feat-row">
+        <div class="feat-num">10</div>
+        <h3 class="feat-name">bien <em>sûr</em></h3>
+        <div>
+          <p class="feat-desc">Habit tracker built on Next.js 16 and React 19. Calendar interface, streak tracking, optimistic UI updates, theme switching, Framer Motion micro-interactions.</p>
+          <div class="feat-stack">
+            <span>Next.js 16</span><span>React 19</span><span>TypeScript</span><span>Prisma 7</span><span>PostgreSQL</span>
+          </div>
+        </div>
+        <div class="feat-year">2025</div>
+      </article>
 
       <article class="feat-row">
         <div class="feat-num">11</div>
@@ -669,29 +731,51 @@
     <div style="margin-top:90px" class="reveal">
       <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:14px">
         <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">— Also in the workshop</div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">4 more</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">6 more</div>
       </div>
       <div class="grid">
+        <a href="https://react-investment-calculator-eight-tau.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
         <div class="card">
-          <h4>Investment Calculator</h4>
+          <h4>Investment Calculator<span class="live">↗ live</span></h4>
           <p>Functional React calculator using Hooks and props for clean data flow — modular, maintainable, modern practices.</p>
           <div class="tag">React · JavaScript</div>
         </div>
+        </a>
+        <a href="https://karpovvicz.github.io/Decimal-to-Binary-Converter/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
         <div class="card">
-          <h4>Decimal → Binary</h4>
+          <h4>Decimal → Binary<span class="live">↗ live</span></h4>
           <p>Recursive converter that visualises the call stack as it executes, animating each step of the recursion.</p>
           <div class="tag">JavaScript · HTML · CSS</div>
         </div>
+        </a>
+        <a href="https://karpovvicz.github.io/web-music-player/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
         <div class="card">
-          <h4>JS Music Player</h4>
+          <h4>JS Music Player<span class="live">↗ live</span></h4>
           <p>Web music player with play/pause, navigation, shuffle and removal — all built on the JavaScript Audio object.</p>
           <div class="tag">Vanilla JS · HTML · CSS</div>
         </div>
+        </a>
+        <a href="https://react-tic-tac-toe-game-ruby.vercel.app" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
         <div class="card">
-          <h4>Tic-Tac-Toe</h4>
+          <h4>Tic-Tac-Toe<span class="live">↗ live</span></h4>
           <p>Two-player React game with dynamic board, move log, winner detection and restart. A small, complete React study.</p>
           <div class="tag">React · JavaScript</div>
         </div>
+        </a>
+        <a href="https://karpovvicz.github.io/JScalculator_without_eval/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
+        <div class="card">
+          <h4>Calculator + Webpack<span class="live">↗ live</span></h4>
+          <p>Basic arithmetic calculator with custom Webpack configuration. Optimized build pipeline that bundles multiple development files into just two production files: HTML and JS.</p>
+          <div class="tag">JavaScript · Webpack</div>
+        </div>
+        </a>
+        <a href="https://yamastudio.pl/yama-slayer-rpg-yama-studio-nagran-warszawa/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit">
+        <div class="card">
+          <h4>YamaSlayerRPG<span class="live">↗ live</span></h4>
+          <p>Role-playing game with combat system, player progression, and enemy AI. Experience points, leveling mechanics, character stats, inventory, and interactive environments.</p>
+          <div class="tag">Game Development · RPG</div>
+        </div>
+        </a>
       </div>
     </div>
   </section>
