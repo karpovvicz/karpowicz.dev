@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://karpowicz.dev/sitemap.xml
+Sitemap: https://www.kacperkarpowicz.dev/sitemap.xml
